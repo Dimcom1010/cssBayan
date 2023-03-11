@@ -7,14 +7,8 @@
 }
 /* remove margin*/
 body,
-h1,
-h2,
-h3,
-h4,
-p,
-li,
-dl,
-dd {
+p
+ {
   margin: 0;
 }
 /* img style default */
@@ -22,9 +16,75 @@ img {
   max-width: 100%;
   display: block;
 }
-/* setting fonts for inputs and buttons*/
-button,
-input,
-textarea {
-  font: inherit;
+
+/* styles cssBayan*/
+
+.wrapper{
+  width: 100%;
+  min-height: 100vw;
+  background: #000;
+  overflow: hidden;
+}
+.container{
+  width: 50%;
+  margin: 20px auto;
+  background: rgb(168, 243, 38);
+}
+
+.bayan_item{
+  width: 100%;
+  background: rgb(20, 199, 172);
+  border: 1px solid rgb(150, 213, 203);
+  cursor: pointer;
+}
+.bayan_label{
+  background: rgb(30, 149, 204);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  font-size: 25px;
+  transition: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  cursor: pointer;
+}
+.bayan_wrapper:hover .lable_cross{
+  display: flex;
+}
+
+.lable_text{
+
+}
+.lable_cross{
+  display: none;
+  font-weight: 900;
+  transition: 2.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.bayan_label:hover {
+  background: rgb(30, 204, 152);
+}
+.bayan_input:checked ~ .bayan_content{
+  display: flex;
+}
+.bayan_input:checked ~ .bayan_label > .lable_cross{
+  transform: rotateZ(45deg);
+}
+.bayan_input:hover ~ .bayan_content{
+  display: flex;
+}
+.bayan_input{
+  position: absolute;
+  height: 0;
+  width: 0;
+  appearance: none;
+}
+.bayan_content{
+  display: none;
+  flex-direction: column;
+}
+.bayan_content img{
+  width: 50%;
+  margin: 10px auto;
+}
+.bayan_content p{
+  text-align: center;
 }
