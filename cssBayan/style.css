@@ -45,10 +45,14 @@ img {
   padding: 10px 20px;
   font-size: 25px;
   transition: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  color: blue;
   cursor: pointer;
 }
 .bayan_wrapper:hover .lable_cross{
   display: flex;
+}
+.bayan_wrapper:hover .bayan_label{
+  color: #000;
 }
 
 .lable_text{
@@ -65,8 +69,18 @@ img {
 .bayan_input:checked ~ .bayan_content{
   display: flex;
 }
+.bayan_input:checked + .bayan_label{
+  color: #000;
+}
 .bayan_input:checked ~ .bayan_label > .lable_cross{
   transform: rotateZ(45deg);
+}
+.bayan_input:checked ~ .bayan_content img{
+  width: 50%;
+}
+
+.bayan_input:hover ~ .bayan_content img{
+  width: 50%;
 }
 .bayan_input:hover ~ .bayan_content{
   display: flex;
@@ -82,9 +96,8 @@ img {
   flex-direction: column;
 }
 .bayan_content img{
-  width: 50%;
+  width: 0%;
   margin: 10px auto;
-}
-.bayan_content p{
-  text-align: center;
+
+  transition: 2.9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
