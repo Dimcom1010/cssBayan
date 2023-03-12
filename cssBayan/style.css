@@ -9,7 +9,13 @@
 }
 /* animation variables*/
 :root{
-  --animation_style: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1)
+  --animation_style: 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+/* adiptiv variables*/
+:root{
+  --distop: 1200;
+  --min_text_size: 12px;
+  --deff_text_size: 13;
 }
 
 /* styles cssBayan*/
@@ -24,14 +30,25 @@ body{
 }
 
 .container{
-  width: 50%;
+  width: calc(
+    150px + 400 * (100vw / var(--distop))
+);
   margin: 20px auto;
+  max-width: 500px;
 }
 
+.bayan_wrapper:hover .lable_cross{
+  display: flex;
+  justify-content: end;
+}
+.bayan_wrapper:hover .bayan_label{
+  color: var(--text_lable_active);
+}
 .bayan_item{
   display: flex;
   flex-direction: column;
   width: 100%;
+  align-items: center;
   background: var(--bg_bayan);
   border: 1px solid var(--bg_lable_active);
   cursor: pointer;
@@ -43,34 +60,40 @@ body{
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
-  font-size: 25px;
+  font-size: calc(
+    var(--min_text_size) + var(--deff_text_size) * (100vw / var(--distop))
+);
   transition: var(--animation_style);
   color: var(--text_lable);
   cursor: pointer;
 }
-.bayan_wrapper:hover .lable_cross{
-  display: flex;
-}
-.bayan_wrapper:hover .bayan_label{
-  color: var(--text_lable_active);
-}
 
-.lable_text{
-  transition: var(--animation_style);
-
-}
-
-.lable_cross{
-  display: none;
-  font-weight: 900;
-  transition: var(--animation_style);
-}
 .bayan_label:hover {
   background: var(--bg_lable_active);
 }
 .bayan_label:hover > .lable_text {
   color: var(--bg);
 }
+
+.lable_text{
+  transition: var(--animation_style);
+  max-width: 95%;
+}
+
+.lable_cross{
+  display: none;
+  align-items: center;
+  font-weight: 900;
+  transition: var(--animation_style);
+}
+
+.bayan_input{
+  position: absolute;
+  height: 0;
+  width: 0;
+  appearance: none;
+}
+
 .bayan_input:checked ~ .bayan_content{
   display: flex;
 }
@@ -81,12 +104,7 @@ body{
   transform: rotateZ(405deg);
 }
 
-.bayan_input:checked ~ .bayan_content img{
-  display: block;
-  width: 50%;
-}
-
-.bayan_input:hover ~ .bayan_content img{
+.bayan_input:checked ~ .bayan_content img,.bayan_input:hover ~ .bayan_content img{
   display: block;
   width: 50%;
 }
@@ -94,12 +112,7 @@ body{
 .bayan_input:hover ~ .bayan_content{
   display: flex;
 }
-.bayan_input{
-  position: absolute;
-  height: 0;
-  width: 0;
-  appearance: none;
-}
+
 .bayan_content{
 
   flex-direction: column;
@@ -114,7 +127,12 @@ body{
   width: 0;
   margin: 0px auto;
   animation: 0.7s ease-in running size;
-  
+}
+
+@media (min-width: 1200px) {
+  .bayan_label{
+    font-size: 25px;
+  }
 }
 
 @keyframes size {
