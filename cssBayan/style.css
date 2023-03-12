@@ -120,10 +120,13 @@ body{
 }
 
 .lable_cross{
-  opacity: 0;
+  
+  display: flex;
   align-items: center;
+  justify-content: center;
   font-weight: 900;
   transition: var(--animation_style);
+  opacity: 0;
 }
 
 .bayan_content img{
@@ -136,6 +139,11 @@ body{
 @media (min-width: 1200px) {
   .bayan_label{
     font-size: 23px;
+  }
+}
+@media (max-width: 320px) {
+  .wrapper{
+    background: #000;
   }
 }
 
