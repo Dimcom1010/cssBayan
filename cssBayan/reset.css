@@ -1,0 +1,18 @@
+/* zeroing out css */
+/* remove box sizing */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+/* remove margin*/
+body,
+p
+ {
+  margin: 0;
+}
+/* img style default */
+img {
+  max-width: 100%;
+  display: block;
+}
