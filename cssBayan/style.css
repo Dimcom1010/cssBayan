@@ -135,15 +135,13 @@ body{
   margin: 0px auto;
   animation: 0.7s ease-in running size;
 }
+img:hover{
+  cursor: url(src/img/favicon-32x32.png), default;;
+}
 
 @media (min-width: 1200px) {
   .bayan_label{
     font-size: 23px;
-  }
-}
-@media (max-width: 320px) {
-  .wrapper{
-    background: #000;
   }
 }
 
